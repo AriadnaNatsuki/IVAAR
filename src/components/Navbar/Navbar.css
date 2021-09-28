@@ -1,0 +1,15 @@
+.Navbar{
+      /* background-color: #51bcc0; */
+      /* c2dfe0 */
+      background-color: #0b8084;
+      width: 100vw;
+}
+.Navbar__link{
+ text-transform: uppercase;
+  text-decoration: none;
+  color:#c2dfe0;
+
+}
+.Navbar__link:hover{
+ color:black;
+}
