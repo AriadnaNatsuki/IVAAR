@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { listAdoptions} from '../../services/AnimalService'
+import { listAdoptions } from '../../services/AnimalService'
 import AnimalCard from "../AnimalCard/AnimalCard";
 export default function AdoptList() {
+    //Hooks
     const [animals, setAnimals] = useState();
     const [error, setError] = useState(false);
     useEffect(() => {

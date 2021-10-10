@@ -2,6 +2,10 @@ import { create } from './BaseService'
 
 const http=create()
 
-export function AdoptList() {
+export function listAdoptions() {
     return http.get('/adopt')
+}
+
+export function getAnimal(id) {
+    return http.get(`/adopt/${id}`)
 }

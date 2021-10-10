@@ -5,11 +5,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import AuthContextProvider from './contexts/AuthContext';
 ReactDOM.render(
   <React.StrictMode>
+    {/* Wrapeamos el contexto  */}
+    <AuthContextProvider>
   <Router>
     <App />
     </Router>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

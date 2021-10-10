@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 export default function AnimalCard({ name, genre, age, diseases, weight, images, id }) {
     return (<Link className="AnimalCard" to={`/adopt/${id}`}>
+        <h3>{name}</h3>
         <img className="AnimalCard_image" src={images[0]} alt=""/>
         <div className="AnimalCard_basic-info">
             <ul>

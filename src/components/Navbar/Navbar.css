@@ -3,11 +3,14 @@
       /* c2dfe0 */
       background-color: #0b8084;
       width: 100vw;
+      
 }
 .Navbar__link{
  text-transform: uppercase;
   text-decoration: none;
   color:#c2dfe0;
+  display: flex;
+  justify-content: space-between;
 
 }
 .Navbar__link:hover{

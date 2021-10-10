@@ -1,9 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import './Navbar.css'
 // import logo from '..../public/ivaar-logo.png'
 
 export default function Navbar() {
+    const {user, logout}=useAuth()
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark color-navb">
             <div className="Navbar">
@@ -44,11 +46,31 @@ export default function Navbar() {
                                 <h5> Registrate</h5>
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/login" className="Navbar__link">
-                                <h5> Login</h5>
+{/* Operador ternario : Si hay usuario muestra profile y sino muestra login */}
+                        {user ? (
+                            <>
+                                <li className="nav-item">>
+                       <Link to="/profile" className="Navbar__link">
+                                <h5>{user.name}</h5>
                             </Link>
+                            </li>
+                        <li>
+                                <button
+                                    className="Navbar_content_button"
+                                    onClick={logout}
+                                    title="Log out"
+                                >Logout</button>
                         </li>
+                        </>
+                        ) : (
+                                <li>
+                                    <Link to="/login" className="Navbar__link">
+                                        <h5>Login</h5>
+                                    </Link>
+                                </li>
+                            ) 
+                        }
+                    
 
                         <a className="btn btn-outline-success" type="submit" href="/login">Login</a>
 
