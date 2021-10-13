@@ -9,8 +9,10 @@
  text-transform: uppercase;
   text-decoration: none;
   color:#c2dfe0;
-  display: flex;
-  justify-content: space-between;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .Navbar__link:hover{

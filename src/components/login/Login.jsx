@@ -1,4 +1,5 @@
-import {useState, useContext} from 'react'
+import { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import { useAuth } from '../../hooks/useAuth'
 export default function Login() {
@@ -40,5 +41,7 @@ export default function Login() {
                 onChange={onChange} />
             <button type="submit">Log in</button>
         </form>
+        <br />
+        <Link to='/register'>¿No tienes cuenta? Registrate aquí</Link>
     </div>
 }

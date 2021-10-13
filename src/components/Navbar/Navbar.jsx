@@ -49,7 +49,7 @@ export default function Navbar() {
 {/* Operador ternario : Si hay usuario muestra profile y sino muestra login */}
                         {user ? (
                             <>
-                                <li className="nav-item">>
+                                <li className="nav-item">
                        <Link to="/profile" className="Navbar__link">
                                 <h5>{user.name}</h5>
                             </Link>
