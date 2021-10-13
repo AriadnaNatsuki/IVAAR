@@ -4,6 +4,7 @@ import { useAuth } from "../../hooks/useAuth";
 import './Navbar.css'
 // import logo from '..../public/ivaar-logo.png'
 
+
 export default function Navbar() {
     const {user, logout}=useAuth()
     return (
@@ -24,6 +25,11 @@ export default function Navbar() {
                                 <li><Link to="/all-allerts">Ver</Link></li>
                                 <li><Link to="/new-allert">Nueva</Link></li>
                             </ul>
+                        </li> */}
+                        {/* <li className="nav-item">
+                            <Link to="/" className="Navbar__link">
+                                <img src={logo} alt="" width="300" height="50"/>
+                            </Link>
                         </li> */}
                         <li className="nav-item">
                             <Link to="/new-allert" className="Navbar__link">

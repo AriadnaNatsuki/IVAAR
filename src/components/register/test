@@ -1,0 +1,9 @@
+{/* <div>
+                {value === 'Particular' || value==='Protectora' ?
+                    (     <label htmlFor="identification">NIF/DNI</label>
+                <input
+                    name="identification"
+                    id="identification"
+                    value={user.identification}
+                    onChange={onChange} />):  }
+            </div> */}

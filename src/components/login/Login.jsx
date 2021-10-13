@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import { useAuth } from '../../hooks/useAuth'
@@ -20,7 +20,7 @@ export default function Login() {
         event.preventDefault()
         login(credentials.name, credentials.password)
             .then(() => {
-                    
+                    replace("/")
                 })
         .catch((e)=>setError(e))
     }
