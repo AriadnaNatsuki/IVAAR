@@ -1,7 +1,7 @@
 import { useState} from 'react'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router'
+import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+
 export default function Login() {
     const [credentials, setCredentials] = useState({
         email: "",
@@ -16,32 +16,39 @@ export default function Login() {
         setCredentials((old)=>({...old, [event.target.name]:event.target.value}))
     }
     //Creamos funcion doLogin
-    const doLogin = (event) => {
-        event.preventDefault()
-        login(credentials.name, credentials.password)
+    const doLogin = (e) => {
+        e.preventDefault();
+        login(credentials.email, credentials.password)
             .then(() => {
-                    replace("/")
-                })
-        .catch((e)=>setError(e))
-    }
-    return <div className="Login">
-        {error && <p>Ha ocurrido un error: {error.error}</p>}
-        <form onSubmit={doLogin}>
-            <label htmlFor="email">Email</label>
-            <input
-                name="email"
-                id="email"
-                value={credentials.email}
-                onChange={onChange} />
-            <label htmlFor="password">Password</label>
-            <input
-                name="password"
-                id="password"
-                value={credentials.password}
-                onChange={onChange} />
-            <button type="submit">Log in</button>
-        </form>
-        <br />
-        <Link to='/register'>¿No tienes cuenta? Registrate aquí</Link>
-    </div>
+                replace("/");
+            })
+            .catch((e) => {
+                setError(e.response.data.message);
+            });
+    };
+    return (
+        <div className="Login">
+            {error && <p>There was an error: {error}</p>}
+            <form onSubmit={doLogin}>
+                <label htmlFor="email">Email</label>
+                <input
+                    name="email"
+                    id="email"
+                    value={credentials.email}
+                    onChange={onChange}
+                />
+                <label htmlFor="password">Password</label>
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    value={credentials.password}
+                    onChange={onChange}
+                />
+                <button type="submit">Log in</button>
+            </form>
+            <br />
+            <Link to="/signup">¿No tienes cuenta? Registrate aquí</Link>
+        </div>
+    );
 }

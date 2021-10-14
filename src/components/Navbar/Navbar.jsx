@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import './Navbar.css'
-// import logo from '..../public/ivaar-logo.png'
+// import logo from '.../assets/ivaar-logo.jpg'
 
 
 export default function Navbar() {
@@ -10,7 +10,6 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark color-navb">
             <div className="Navbar">
-                {/* {{!-- < a className="navbar-brand" href="/">Wonder Places</> --}} */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -26,11 +25,7 @@ export default function Navbar() {
                                 <li><Link to="/new-allert">Nueva</Link></li>
                             </ul>
                         </li> */}
-                        {/* <li className="nav-item">
-                            <Link to="/" className="Navbar__link">
-                                <img src={logo} alt="" width="300" height="50"/>
-                            </Link>
-                        </li> */}
+                       
                         <li className="nav-item">
                             <Link to="/new-allert" className="Navbar__link">
                                 <h5> Nueva</h5>
@@ -46,7 +41,11 @@ export default function Navbar() {
                                 <h5> Acoge</h5>
                             </Link>
                         </li>
-                        <a className="nav-link" href="/"> <img src="" width="300" height="50" alt="" /></a>
+                        {/* <li className="nav-item">
+                            <Link to="/" className="Navbar__link">
+                                <img src={logo} alt="" width="300" height="50" />
+                            </Link>
+                        </li> */}
                         <li className="nav-item">
                             <Link to="/register" className="Navbar__link">
                                 <h5> Registrate</h5>

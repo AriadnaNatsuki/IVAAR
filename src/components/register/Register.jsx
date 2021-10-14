@@ -6,6 +6,7 @@ import './Register.css'
 
 
 export default function Register() {
+
     const [error, setError] = useState()
     const { replace } = useHistory()
     const [user, setUser] = useState({
@@ -14,6 +15,8 @@ export default function Register() {
         role: "",
         name: "",
         image: undefined,
+        identification_professional: "",
+        identification_particular:""
     })
 
     //Creamos funcion onChange
@@ -57,18 +60,28 @@ export default function Register() {
                     <option value="Veterinario/a">Veterinario/a</option>
                 </select>
             </div>
-          
-                {/* <div>
-                {(user.role === 'Particular' || user.role==='Protectora') ?
-                    
-                    <input
-                    name="identification"
-                        id="identification"
-                        placeholder="Introduzca DNI/NIE"
-                    value={user.identification}
-                    onChange={onChange} />: <h2>Bye </h2>}
-            </div>  */}
-            
+
+            <div>
+                {(user.role === 'Particular' || user.role === 'Protectora') ?
+                    <>
+                        <label htmlFor="name">NIF/NIE</label>
+                        <input
+                            name="identification_particular"
+                            id="_particular"
+                            placeholder="DNI/NIE con letra y sin espacios. Ejemplo:  12345678Z"
+                            value={user.identification_particular}
+                            onChange={onChange} /> </> :
+                    <>
+                        <label htmlFor="name">Nº colegiado </label>
+                        <input
+                            name="identification_professional"
+                            id="identification_professional"
+                            placeholder="Debe contener 10 dígitos, si es de 8 complete con ceros a la izquierda"
+                            value={user.identification_professional}
+                            onChange={onChange} /> </>}
+
+            </div>
+
 
             {/* NOMBRE */}
             <div>

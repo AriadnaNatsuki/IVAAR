@@ -5,14 +5,20 @@
       width: 100vw;
       
 }
+li{
+       display: flex;
+      list-style: none;
+      align-items: center;
+      justify-content: space-around;
+}
 .Navbar__link{
  text-transform: uppercase;
   text-decoration: none;
   color:#c2dfe0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ display: flex;
+      list-style: none;
+      align-items: center;
+      justify-content: space-around;
 
 }
 .Navbar__link:hover{
