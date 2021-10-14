@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 import { useHistory } from 'react-router'
-import { createanimal } from '../../services/animalService'
-
+import { createAnimal } from '../../services/AnimalService'
+import './NewAnimal.css'
 
 
 export default function NewAnimal() {
@@ -47,7 +47,7 @@ export default function NewAnimal() {
             formData.append(key, animal[key])
         })
 
-        createanimal(formData)
+        createAnimal(formData)
             .then(() => {
                 replace("/");
             })
@@ -58,7 +58,28 @@ export default function NewAnimal() {
         {error && <p>Ha ocurrido un error: {error}</p>}
         <form onSubmit={doNewAnimal}>
             <h2>Formulario Alta Animal</h2>
-
+            {/* PROVINCIA Y CIUDAD*/}
+            {/* <div> */}
+            <fieldset>
+            <legend>Ubicación del animal</legend>
+                    <label htmlFor="province">Provincia</label>
+                <input
+                    name="town"
+                    id="town"
+                    value={animal.town}
+                    placeholder="Ejemplo: Alcobendas"
+                    onChange={onChange} />
+                    <label htmlFor="town">Localidad</label>
+                <input
+                    name="province"
+                    id="province"
+                    value={animal.province}
+                    placeholder="Ejemplo: Madrid"
+                    onChange={onChange} />
+            
+               
+               </fieldset>
+            {/* </div> */}
             {/* NOMBRE */}
             <div>
                 <label htmlFor="name">Nombre</label>
@@ -72,7 +93,7 @@ export default function NewAnimal() {
             {/* ESPECIE ANIMAL */}
             <div>
                 {/* <label htmlFor="animal">Es de la especie...</label> */}
-                <legend>Es de la especie...</legend>
+                <label htmlFor="name">Es de la especie...</label>
                 <select value={animal.species} id="species" name="species" onChange={onChange}>
                     <option value="Perro">Perro</option>
                     <option value="Gato">Gato</option>
@@ -83,26 +104,36 @@ export default function NewAnimal() {
                     <option value="Otro">Otro</option>
                 </select>
             </div>
-            
+            {/* RAZA */}
+            <div>
+                {/* <label htmlFor="animal">Es de la especie...</label> */}
+                <label htmlFor="breed">Raza</label>
+                <select value={animal.breed} id="breed" name="breed" onChange={onChange} >
+                <option value="Podenco andaluz" onChange={onChange}>Podenco andaluz</option>
+                <option value="Bodeguero andaluz" onChange={onChange}>Bodeguero andaluz</option>
+                <option value="Otro" onChange={onChange}>Otro</option>
+              </select>
+            </div>
             {/* ESTERILIZADO */}
             <div>
-            <legend>Esterilizado</legend>
-            <select value={animal.species} id="species" name="species" onChange={onChange}>
+                <label htmlFor="name">Esterilizado</label>
+                <select value={animal.sterilized} id="sterilized" name="sterilized" onChange={onChange}>
                 <option value="Yes">Sí</option>
                 <option value="No">No</option>
             </select>
             </div>
             {/* GENERO */}
             <div>
-            <legend>Esterilizado</legend>
+              <label htmlFor="name">Sexo</label>
             <select value={animal.genre} id="genre" name="genre" onChange={onChange}>
                 <option value="Female">Hembra</option>
                 <option value="Male">Macho</option>
             </select>
+            
             </div>
              {/* EDAD */}
             <div>
-            <legend>Edad</legend>
+                <label htmlFor="name">EDAD</label>
             <input
                     name="age"
                     id="age"
@@ -112,17 +143,17 @@ export default function NewAnimal() {
             </div>
             {/* PESO */}
             <div>
-            <legend>Peso</legend>
+                <label htmlFor="name">Peso</label>
             <input
                     name="weight"
                     id="weight"
                     value={animal.weight}
                     placeholder="Peso en kg"
-                    onChange={onChange} />
+                    onChange={onChange}/><h6>kg</h6>
             </div>
                 {/* CASA DE ACOGIDA */}
                 <div>
-                <legend>¿Qué necesita?</legend>
+                <label htmlFor="name">¿Qué busca?</label>
             <select value={animal.fosterhome} id="fosterhome" name="fosterhome" onChange={onChange}>
                 <option value="Foster">Acogida</option>
                 <option value="Adoption">Adopción</option>
@@ -130,12 +161,12 @@ export default function NewAnimal() {
             </div>
              {/* ENFERMEDADES */}
             <div>
-            <legend>Enfermedades</legend>
+                <label htmlFor="name">Enfermedades</label>
             <select value={animal.diseases} id="diseases" name="diseases" onChange={onChange}>
+                    <option value="No">No</option>
                 <option value="Yes">Sí</option>
-                <option value="No">No</option>
             </select>
-                {animal.diseases && (<>
+                {animal.diseases==="Yes" && (<>
                     <label htmlFor="diseases_description">Descripción</label>
                     <textarea
                         name="diseases_description"
@@ -145,8 +176,6 @@ export default function NewAnimal() {
                         onChange={onChange} />
                 </>)}
             </div>
-               
-           
             {/* DESCRIPCION */}
             <div>
                 <label htmlFor="description">Descripción</label>
@@ -162,7 +191,7 @@ export default function NewAnimal() {
            
             {/* IMAGEN */}
             <div>
-                <label htmlFor="image">Image</label>
+                <label htmlFor="image">Imagenes</label>
                 <input
                     name="image"
                     id="image"
@@ -173,9 +202,6 @@ export default function NewAnimal() {
                 {/* <img src={animal.image} alt=""/> */}
 
             </div>
-
-
-
 
             <button type="submit">Submit</button>
         </form>

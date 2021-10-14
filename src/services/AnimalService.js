@@ -9,3 +9,7 @@ export function listAdoptions() {
 export function getAnimal(id) {
     return http.get(`/adopt/${id}`)
 }
+
+export const createAnimal = (animal) => {
+    return http.post('/new-animal', animal)
+}

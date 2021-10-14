@@ -3,6 +3,9 @@ form{
     background-color:#6cf68d;
    margin-left:40px;
 }
+/* input{
+    width: 400px;
+} */
 div{
     display: flex;
     flex-direction: column;
@@ -10,5 +13,5 @@ div{
 }
 button:hover{
     background-color: black;
-    color:aqua
+    color:#6cf68d;
 }
